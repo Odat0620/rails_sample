@@ -10,6 +10,11 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'kaminari'
+gem 'hirb'
+gem 'hirb-unicode'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -24,6 +29,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 4.0.2'
+  gem 'spring-commands-rspec'
 end
 
 group :development do

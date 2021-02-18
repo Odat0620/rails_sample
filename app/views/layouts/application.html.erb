@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='ja'>
   <head>
     <title>Touringood</title>
     <%= csrf_meta_tags %>
@@ -10,6 +10,22 @@
   </head>
 
   <body>
+     <nav>
+     <%= link_to "Trouringood", root_path %>
+      <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
+      <% if user_signed_in? %> 
+        <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+        <!-- *_path はUserモデルを作成したときに、
+        deviseにより自動で作成されてますので、rake routesで確認できます -->
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'プロフィール変更', edit_user_registration_path %> |
+        <%= link_to "ログアウト", sign_out_path %>
+      <% else %>
+        <%= link_to "新規登録", new_user_registration_path %> |
+        <%= link_to "ログイン", new_user_session_path %>
+      <% end %>
+    </nav>
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
