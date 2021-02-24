@@ -10,7 +10,4 @@ class User < ApplicationRecord
 
 
 
-  def name_email
-    name + ", " + email
-  end
 end
