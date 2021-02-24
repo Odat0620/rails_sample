@@ -1,1 +1,7 @@
-<h1>test</h1>
+<% if user_signed_in? && @user == current_user %>
+  <h1>マイページ</h1>
+<% else %>
+  <h1>ユーザーページ</h1>
+<% end %>
+
+<h1><%= @user.name %></h1>

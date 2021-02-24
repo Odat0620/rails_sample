@@ -1,17 +1,28 @@
 class UsersController < ApplicationController
-    def index
-    end
+  before_action :authenticate_user!, only: [:mypage]
+  before_action :set_user, only: [:show]
 
-    def show
-        @user = User.find_by(params[:id])
-    end
+  def index
+  end
 
-    def create
-    end
+  def show
+  end
 
-    def update
-    end
+  def mypage
+    redirect_to user_path(current_user)
+  end
 
-    def destroy
+  def create
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  private
+    def set_user
+      @user = User.find(params[:id])
     end
 end

@@ -18,8 +18,9 @@
         <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
         <!-- *_path はUserモデルを作成したときに、
         deviseにより自動で作成されてますので、rake routesで確認できます -->
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'プロフィール変更', edit_user_registration_path %> |
+        <strong><%= current_user.email %></strong>でログイン
+        <%= link_to 'マイページ', mypage_path %> |
+        <%= link_to 'プロフィール編集', edit_user_registration_path %> |
         <%= link_to "ログアウト", sign_out_path %>
       <% else %>
         <%= link_to "新規登録", new_user_registration_path %> |
