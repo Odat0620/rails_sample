@@ -18,6 +18,8 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'hirb'
 gem 'hirb-unicode'
+gem 'carrierwave'
+gem 'rmagick'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

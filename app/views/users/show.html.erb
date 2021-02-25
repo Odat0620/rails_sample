@@ -4,4 +4,7 @@
   <h1>ユーザーページ</h1>
 <% end %>
 
+<% if @user.image? %>
+  <%= image_tag @user.image.thumb.url %>
+<% end %>
 <h1><%= @user.name %></h1>
