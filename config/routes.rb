@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   end
 
   resources :users, :only => [:show]
+  resources :posts
 
   root 'home#top'
   get 'home/top'
   get '/mypage' => 'users#mypage'
+
+
 end

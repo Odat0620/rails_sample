@@ -1,0 +1,21 @@
+<div class="contents row">
+  <%= form_with model: @post, local: true do |f| %>
+    <h2>
+      投稿する
+    </h2>
+
+    <div class="form-group">
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: 'form-control'%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :content, "本文" %>
+      <%= f.text_area :content, placeholder: "本文を入力してください。", rows: '6', class: "form-control" %>
+    </div>
+   
+    <div class="submit">
+      <%= f.submit "投稿する", class: 'btn btn-primary btn-block' %>
+    </div>
+  <% end %>
+</div>

@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
     root_path
     #user_path(resource.id) マイページの場合
   end
+
+
   
   protected
 
