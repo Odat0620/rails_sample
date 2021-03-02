@@ -17,6 +17,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [100, 100]
   end
 
+  version :thumb30 do
+    process :resize_to_limit => [30, 30]
+  end
+
   def auto
     manipulate! do|image|
       image.auto_orient
