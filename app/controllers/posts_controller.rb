@@ -3,9 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[edit show update destroy]
 
   def index
-    @user = current_user
-    @search = Post.search(params[:q])
-    @posts = @search.result.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+    all_index
   end
 
   def new

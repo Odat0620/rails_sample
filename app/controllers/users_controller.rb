@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:mypage]
   before_action :set_user, only: [:show]
+  before_action :users_posts, only: [:show]
 
   def index
   end

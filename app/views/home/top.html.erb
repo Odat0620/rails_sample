@@ -1,10 +1,23 @@
 <div>
   <h1>Touringood</h1>
   <h2>ツーリングのルート共有アプリです。</h2>
-  <%= link_to "新規登録", new_user_registration_path %><br/>
   <%= link_to "投稿一覧", posts_path %>
 </div>
 
-<div><!--内容-->
+<% if user_signed_in? %>
+  <div>
+  </div>
+<% else %>
+  <%= link_to "新規登録", new_user_registration_path %><br/>
+<% end %>
 
+<div><!--内容-->
+  <% @posts.each do |post| %>
+  <%= post.title %> |
+  <%= post.content %> |
+  <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  <%= link_to post.user.name, user_path(post.user) %><br/>
+  <% end %>
+
+  <%= paginate(@posts) %>
 </div>

@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
     #user_path(resource.id) マイページの場合
   end
 
+  #全ユーザーの投稿一覧
+  def all_index
+    @user = current_user
+    @search = Post.search(params[:q])
+    @posts = @search.result.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+  end
+
 
   
   protected
