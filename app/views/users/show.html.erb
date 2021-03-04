@@ -6,7 +6,10 @@
 
 <% if @user.image? %>
   <%= image_tag @user.image.thumb.url %>
+<% else %>
+  <%= image_tag "default.jpg", :size =>'100x100' %>
 <% end %>
+
 <h1><%= @user.name %></h1>
 
-<%= render 'users/shared/user_thumb30' %>
+<%= render 'users/shared/users_posts' %>

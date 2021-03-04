@@ -22,20 +22,23 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy if post.user_id == current_user.id
+    @post.destroy if @post.user_id == current_user.id
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post.update(post_params) if @post.user_id == current_user.id.order("created_at DESC").page(params[:page]).per(20)
+    @post.update(post_params)
+    if @post.save
+      redirect_to user_path(@post.user.id), notice: '編集しました'
+    else
+      flash.now[:alert] = '編集に失敗しました'
+      render :edit
+    end
   end
 
   def show
-    @post = Post.find(params[:id])
     @comments = @post.comments.includes(:user)
   end
 
