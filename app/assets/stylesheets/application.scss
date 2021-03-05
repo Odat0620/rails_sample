@@ -11,6 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  */
+ /*
+ *= require_tree .
+ *= require_self
+ */
  
  @import "bootstrap/scss/bootstrap";
  
@@ -28,5 +32,10 @@
   
   .alert-alert {
     @extend .alert-danger;
+  }
+
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
   }
   

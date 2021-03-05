@@ -1,15 +1,13 @@
-<div>
+<div class="top_container">
   <h1>Touringood</h1>
-  <h2>ツーリングのルート共有アプリです。</h2>
-  <%= link_to "投稿一覧", posts_path %>
+  <p>ツーリングのルート共有アプリです。</p>
+  <% unless user_signed_in? %>
+  <div class="sign_up">
+    <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-primary' %>
+  </div>
+  <% end %>
 </div>
 
-<% if user_signed_in? %>
-  <div>
-  </div>
-<% else %>
-  <%= link_to "新規登録", new_user_registration_path %><br/>
-<% end %>
-
+<%= link_to "投稿一覧", posts_path %>
 
 <%= render 'users/shared/users_posts' %>

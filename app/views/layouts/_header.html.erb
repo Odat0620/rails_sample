@@ -1,25 +1,29 @@
 <header>
   <nav>
-     <%= link_to "Trouringood", root_path %>
+     <div class="top_link">
+      <%= link_to "Trouringood", root_path, class: 'btn' %>
+     </div>
       <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
-     <% if user_signed_in? %> 
-        <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-        <!-- *_path はUserモデルを作成したときに、
-        deviseにより自動で作成されてますので、rake routesで確認できます -->
-        <strong><%= current_user.email %></strong>でログイン
-        <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= image_tag(current_user.image.thumb30.url, class:"user-icon") %>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'マイページ', mypage_path, class: 'dropdown-item' %>
-            <%= link_to '設定', edit_user_registration_path, class: 'dropdown-item' %>
-            <%= link_to "ログアウト", sign_out_path, class: 'dropdown-item' %>
+     <div class="account_menu">
+      <% if user_signed_in? %> 
+          <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+          <!-- *_path はUserモデルを作成したときに、
+          deviseにより自動で作成されてますので、rake routesで確認できます -->
+          <strong><%= current_user.email %></strong>でログイン
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag(current_user.image.thumb30.url, class:"user-icon") %>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to 'マイページ', mypage_path, class: 'dropdown-item' %>
+              <%= link_to '設定', edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to "ログアウト", sign_out_path, class: 'dropdown-item' %>
+            </div>
           </div>
-        </div>
-     <% else %>
-        <%= link_to "新規登録", new_user_registration_path %> |
-        <%= link_to "ログイン", new_user_session_path %>
+      <% else %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-primary btn-sm' %>
+          <%= link_to "ログイン", new_user_session_path, class: 'btn btn-outline-primary btn-sm' %>
      <% end %>
+     </div>
   </nav>
 </header>

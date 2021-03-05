@@ -1,0 +1,25 @@
+header {
+  background-color: steelblue;
+  nav {
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .top_link {
+      a {
+        font-size: 1.5em;
+        color: rgb(241, 241, 241);
+      }
+    }
+    .account_menu {
+     a {
+       color: cornsilk;
+       border-color: cornsilk;
+       background-color: steelblue;
+     }
+     .dropdown-menu {
+       padding: 0;
+     }
+    }
+  }
+}
