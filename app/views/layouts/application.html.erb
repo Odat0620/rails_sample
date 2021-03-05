@@ -11,22 +11,7 @@
   </head>
 
   <body>
-     <nav>
-     <%= link_to "Trouringood", root_path %>
-      <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
-      <% if user_signed_in? %> 
-        <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-        <!-- *_path はUserモデルを作成したときに、
-        deviseにより自動で作成されてますので、rake routesで確認できます -->
-        <strong><%= current_user.email %></strong>でログイン
-        <%= link_to 'マイページ', mypage_path %> |
-        <%= link_to 'プロフィール編集', edit_user_registration_path %> |
-        <%= link_to "ログアウト", sign_out_path %>
-      <% else %>
-        <%= link_to "新規登録", new_user_registration_path %> |
-        <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
-    </nav>
+     <%= render 'layouts/header' %>
 
     <div class="container-fluid py-4 <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
     <%= render 'layouts/flash_messages' %>

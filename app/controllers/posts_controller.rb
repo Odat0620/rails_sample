@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
-  before_action :set_post, only: %i[edit show update destroy]
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :current_user_authenticate, only: %i[edit update destroy]
 
   def index
     all_index
@@ -54,5 +55,10 @@ class PostsController < ApplicationController
 
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def current_user_authenticate
+      @post = Post.find(params[:id])
+      redirect_to root_path, alert: '権限がありません' if @post.user.id != current_user.id
     end
 end
