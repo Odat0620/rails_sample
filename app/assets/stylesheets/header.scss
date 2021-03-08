@@ -10,15 +10,22 @@ header {
         font-size: 1.5em;
         color: rgb(241, 241, 241);
       }
+      a:hover {
+        color: rgb(197, 196, 196);
+      }
     }
     .account_menu {
+      display: flex;
      a {
        color: cornsilk;
        border-color: cornsilk;
        background-color: steelblue;
      }
      .dropdown-menu {
-       padding: 0;
+       background-color: steelblue;
+     }
+     p {
+      color: cornsilk;
      }
     }
   }

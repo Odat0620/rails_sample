@@ -16,4 +16,9 @@ module DeviseHelper
     end
     html.html_safe
   end
+
+  def branch_layout
+    return 'main_container' unless devise_controller?
+    'container-fluid mw-md'
+  end
 end

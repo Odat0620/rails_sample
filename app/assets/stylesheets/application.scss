@@ -26,6 +26,10 @@
   
   // 「ログインしました」などのフラッシュ用スタイル
   
+  .alert {
+    margin-bottom: 0em;
+  }
+
   .alert-notice {
     @extend .alert-info;
   }
@@ -35,6 +39,7 @@
   }
 
   .container-fluid {
+    margin-top: 1em;
     padding-left: 0;
     padding-right: 0;
   }
