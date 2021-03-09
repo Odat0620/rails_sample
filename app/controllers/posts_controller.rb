@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: '投稿しました。'
     else
-      flash.now[:alert] = "文字数を確認してください。"
       render :new
     end
   end
