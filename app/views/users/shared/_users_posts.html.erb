@@ -1,7 +1,6 @@
 <div><!--内容-->
   <% @posts.each do |post| %>
-    <%= post.title %> |
-    <%= post.content %> |
+    <%= link_to post.title, post_path(post.id) %> |
     <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 
 
@@ -15,7 +14,9 @@
       <%= link_to image_tag("default30.jpg", class:"user-icon"), user_path(post.user) %>
     <% end %>
 
-    <%= link_to post.user.name, user_path(post.user) %><br/>
+    <%= link_to post.user.name, user_path(post.user) %> |
+    <%= link_to "コメントする", "" %>
+    <br/>
   <% end %>
 
   <%= paginate(@posts) %>

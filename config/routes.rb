@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, :only => [:show]
-  resources :posts
+  resources :posts do
+    resources :comments, :only => %i[create destroy]
+  end
 
   root 'home#top'
   get 'home/top'

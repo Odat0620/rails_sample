@@ -39,7 +39,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments.includes(:user)
+    @comment = Comment.new
+    @post_comments = @post.comments.includes(:user).order('created_at DESC')
   end
 
   def show_posts
