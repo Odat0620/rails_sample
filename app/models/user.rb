@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
 
   #バリデーション#
   validates :name,  presence: true, length: { maximum: 20 }
@@ -12,5 +14,8 @@ class User < ApplicationRecord
   
   mount_uploader :image, ImageUploader
   
-
+  #すでにいいねしているか？
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
 end

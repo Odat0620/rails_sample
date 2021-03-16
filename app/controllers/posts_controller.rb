@@ -33,13 +33,13 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to user_path(@post.user.id), notice: '編集しました'
     else
-      flash.now[:alert] = '編集に失敗しました'
       render :edit
     end
   end
 
   def show
     @comment = Comment.new
+    @like = Like.new
     @post_comments = @post.comments.includes(:user).order('created_at DESC')
   end
 
@@ -49,16 +49,17 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:title, :content)
-    end
 
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
 
-    def current_user_authenticate
-      @post = Post.find(params[:id])
-      redirect_to root_path, alert: '権限がありません' if @post.user.id != current_user.id
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def current_user_authenticate
+    @post = Post.find(params[:id])
+    redirect_to root_path, alert: '権限がありません' if @post.user.id != current_user.id
+  end
 end

@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Ignore uploaded files in development
 /public/uploads/
+
+/config/certs/*
+!/config/certs/.keep

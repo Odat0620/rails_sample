@@ -1,0 +1,39 @@
+<% if user_signed_in? %>
+  <%= form_with model: [@post, @comment], local: true do |f| %>
+    <div>
+      <div>
+        <%= f.text_area :content, placeholder: "コメントを入力", class: "p-2 mt-1 rounded" %>
+      </div>
+      <div>
+        <%= f.submit "コメント", class: "btn btn-primary mt-3" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% unless @post_comments.present? %>
+  <div class="message mt-4">
+    この投稿へのコメントはありません
+  </div>
+<% end %>
+
+<div id='messages'>
+  <% @post_comments.each do |comment| %>
+    <div class="message mt-3">
+      <%= comment.content.truncate(100) %>
+      <br>
+
+      <div class="mt-2">
+        <span class="post-time-message"><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+        <% if comment.user == current_user %>
+            <%= link_to "あなた", comment.user, class: "link message-user" %> |
+            <%= link_to "削除", post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+        <% else %>
+            <%= link_to comment.user.name, comment.user, class: "link message-user" %>
+            <span class="message-user-san"></span>さん
+        <% end %>
+      </div>
+
+    </div>
+  <% end %>
+</div>

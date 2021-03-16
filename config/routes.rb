@@ -9,14 +9,11 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
 
-  resources :users, :only => [:show]
+  resources :users, only: [:show]
   resources :posts do
-    resources :comments, :only => %i[create destroy]
+    resources :comments, only: %i[create destroy]
+    resources :likes, only: %i[create destroy]
   end
 
   root 'home#top'
-  get 'home/top'
-  get '/mypage' => 'users#mypage'
-
-
 end
