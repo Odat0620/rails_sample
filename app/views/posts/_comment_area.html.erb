@@ -25,6 +25,13 @@
 
       <div class="mt-2">
         <span class="post-time-message"><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+
+          <% if comment.user.image? %>
+            <%= link_to image_tag(comment.user.image.thumb30.url, class:"user-icon"), user_path(comment.user) %>
+          <% else %>
+            <%= link_to image_tag("default30.jpg", class:"user-icon"), user_path(comment.user) %>
+          <% end %>
+
         <% if comment.user == current_user %>
             <%= link_to "あなた", comment.user, class: "link message-user" %> |
             <%= link_to "削除", post_comment_path(comment.post_id, comment.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>

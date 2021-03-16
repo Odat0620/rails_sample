@@ -3,8 +3,8 @@
   <%= @post.content %><br/>
   <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %> | 
 
-  <div id="show_like_<%= @post.id %>">
-    <%= render 'likes/like', locals: { post: @post } %>
+  <div class="post-like mr-auto">
+    <%= render 'likes/like', post: @post %>
   </div>
   <% if @post.user.image? %>
     <%= link_to image_tag(@post.user.image.thumb30.url, class:"user-icon"), user_path(@post.user) %>
