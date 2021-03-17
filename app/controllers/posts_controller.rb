@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to root_path, notice: '投稿しました。'
+      redirect_to root_path, notice: '投稿しました！'
     else
       render :new
     end
@@ -23,11 +23,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy if @post.user_id == current_user.id
+    redirect_to root_path, notice: '削除しました。'
   end
 
   def edit
   end
-
+  
   def update
     @post.update(post_params)
     if @post.save

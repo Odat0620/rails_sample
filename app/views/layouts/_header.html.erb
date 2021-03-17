@@ -6,9 +6,6 @@
       <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
      <div class="account_menu">
       <% if user_signed_in? %> 
-          <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-          <!-- *_path はUserモデルを作成したときに、
-          deviseにより自動で作成されてますので、rake routesで確認できます -->
           <p><strong><%= current_user.email %></strong>でログイン</p>
           <div class="dropdown">
             <button class="btn " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
