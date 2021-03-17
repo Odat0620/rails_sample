@@ -1,13 +1,17 @@
-<h2>投稿検索</h2>
-<%= link_to '投稿する', new_post_path, {class: 'btn btn-primary withripple' }%>
-<%= link_to '自分の投稿一覧へ', posts_path, {class: 'btn btn-primary withripple' }%>
-<div>
-  <% @posts.each do |post| %>
-  <%= post.title %> |
-  <%= post.content %> |
-  <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-  <%= link_to post.user.name, user_path(post.user) %><br/>
-  <% end %>
+<div class="top_container">
+  <h1>Touringood</h1>
+  <p>ツーリングのルート共有アプリです。</p>
+  
+  <div class="sign_up">
+  <% if user_signed_in? %>
+    <%= link_to "投稿する", new_post_path, class: 'btn btn-primary' %>
 
-  <%= paginate(@posts) %>
+  <%else%>
+    <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-primary' %>
+  <% end %>
+  </div>
 </div>
+
+<%= link_to "投稿一覧", posts_path %>
+
+<%= render 'shared/users_posts', posts: @posts %>
