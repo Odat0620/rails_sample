@@ -1,2 +1,1 @@
-//投稿詳細いいね差し替え
 $('.like-<%= @post.id %>').html("<%= j(render 'likes/like', post: @post) %>");

@@ -1,10 +1,10 @@
 <% if user_signed_in? %>
   <% if current_user.already_liked?(post) %>
-    <%= link_to post_like_path(post.id, current_user.id), method: :delete, remote: true do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: red;"> </i>
+    <%= link_to post_like_path(post.id, current_user.id), method: :delete, remote: true, class: "like" do %>
+      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
     <% end %>
   <% else %>
-    <%= link_to post_likes_path(post.id), method: :post, remote: true do %>
+    <%= link_to post_likes_path(post.id), method: :post, remote: true, class: "like" do %>
       <i class="fa fa-heart" aria-hidden="true" style="color: #C0C0C0;"></i>
     <% end %>
   <% end %>
@@ -12,4 +12,6 @@
   <i class="fa fa-heart" aria-hidden="true"></i>
 <% end %>
 
-<%= post.likes.count %>
+<%= post.likes.length %>
+<i class="fa fa-comment" aria-hidden="true"></i>
+<%= post.comments.length %>

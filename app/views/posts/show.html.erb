@@ -8,9 +8,9 @@
       <%= link_to "削除", post_path(@post.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>
   <% end %>
 
-  <div class="like-<%= @post.id %> mr-auto">
+  <span class="like-<%= @post.id %> mr-auto">
     <%= render 'likes/like', post: @post %>
-  </div>
+  </span>
   <% if @post.user.image? %>
     <%= link_to image_tag(@post.user.image.thumb30.url, class:"user-icon"), user_path(@post.user) %>
   <% else %>
