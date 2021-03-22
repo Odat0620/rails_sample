@@ -1,11 +1,19 @@
 header {
   background-color: steelblue;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: .5s;
   nav {
     padding: 0px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .top_link {
+      .hide {
+        top: -50px;
+      }
       a {
         font-size: 1.5em;
         color: rgb(241, 241, 241);
@@ -16,16 +24,19 @@ header {
     }
     .account_menu {
       display: flex;
+      .btn {
+        margin: auto;
+      }
      a {
-       color: cornsilk;
-       border-color: cornsilk;
+       color: rgb(241, 241, 241);
        background-color: steelblue;
      }
      .dropdown-menu {
        background-color: steelblue;
      }
      p {
-      color: cornsilk;
+      color: rgb(241, 241, 241);
+      margin: auto;
      }
     }
   }

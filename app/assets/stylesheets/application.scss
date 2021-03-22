@@ -26,11 +26,19 @@
  @import "bootstrap/scss/bootstrap";
  
  // max-width
- 
+ body {
+   overflow-x: hidden;
+ }
+
  .mw-md {
    max-width: 576px;
   }
-  
+
+ .max {
+    max-width: 1300px;
+    min-height: 90vh;
+    padding-top: 50px;
+  }
   // 「ログインしました」などのフラッシュ用スタイル
   
   .alert {
@@ -45,10 +53,13 @@
     @extend .alert-danger;
   }
 
-  .container-fluid {
-    margin-top: 1em;
-    padding-left: 0;
-    padding-right: 0;
+  .alert {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: .5s;
+    text-align: center;
+    border-radius: 0;
   }
-
-

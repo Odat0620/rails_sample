@@ -21,3 +21,7 @@ require("bootstrap/dist/js/bootstrap")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(function(){
+  setTimeout("$('.alert').fadeOut('slow')", 3000);
+});
