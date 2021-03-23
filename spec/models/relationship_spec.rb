@@ -30,7 +30,7 @@ RSpec.describe Relationship, type: :model do
       it "follower_idとfollowing_idの組み合わせは一意でないと保存できない" do
         relationship2 = build(:relationship, follower_id: @relationship.follower_id, following_id: @relationship.following_id)
         relationship2.valid?
-        expect(relationship2.errors[:follower]).to include("はすでに存在します")
+        expect(relationship2.errors[:follower_id]).to include("はすでに存在します")
       end
       it "follower_idが同じでもfollowing_idが違えば保存できる" do
         relationship2 = build(:relationship, follower_id: @relationship.follower_id, following_id: @user1.following_id)
