@@ -7,6 +7,26 @@
   <%= image_tag "default.jpg", :size =>'100x100' %>
 <% end %>
 
+<div class="follow">
+  <strong><%= "#{@user.followings.length}" %></strong>
+  フォロー
+  <span>
+    <strong><%= "#{@user.followers.length}" %></strong>
+    フォロワー
+  </span>
+
+
+  <% if user_signed_in? && @user != current_user %>
+    <div id="follow_form">
+      <% if current_user.following?(@user) %>
+        <%= render "unfollow" %>
+      <% else %>
+        <%= render "follow" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 <h4>投稿一覧</h4>
 
 <%= render 'shared/users_posts', posts: @posts %>
