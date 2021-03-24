@@ -4,9 +4,17 @@
 
       <div class="mini-slide">
         <%= link_to post do %>
-          <strong><%= post.title %></strong>
-        <% end %><br/>
+          <% if post.image? %>
+            <%= image_tag post.image.url, class: "mini-slide-image" %>
+          <% else %>
+            <%= image_tag 'post_default.jpg', class: "mini-slide-image" %>
+          <% end %>
+        <% end %>
+      </div>
 
+
+      <div class="mini-slide-bottom">
+        <strong><%= post.title.truncate(15) %></strong><br/>
         <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
         <span class="like-<%= post.id %> mr-auto">
           <%= render 'likes/like', post: post %>
