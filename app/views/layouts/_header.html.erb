@@ -1,12 +1,12 @@
 <header>
   <nav>
-     <div class="top_link">
+    <div class="top_link">
       <%= link_to "Trouringood", root_path, class: 'btn' %>
-     </div>
+    </div>
       <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
-     <div class="account_menu">
+    <div class="account_menu">
       <% if user_signed_in? %> 
-          <p><strong><%= current_user.email %></strong>でログイン</p>
+          <p><strong><%= current_user.name %></strong></p>
           <div class="dropdown">
             <button class="btn " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.image? %>
@@ -24,7 +24,7 @@
       <% else %>
           <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-light btn-sm' %>
           <%= link_to "ログイン", new_user_session_path, class: 'btn btn-outline-light btn-sm' %>
-     <% end %>
-     </div>
+      <% end %>
+    </div>
   </nav>
 </header>

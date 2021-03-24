@@ -6,10 +6,12 @@ header {
   top: 0;
   transition: .5s;
   nav {
+    width: 100%;
     padding: 0px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 10%);
     .top_link {
       .hide {
         top: -50px;
@@ -32,6 +34,7 @@ header {
        background-color: steelblue;
      }
      .dropdown-menu {
+       box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 10%);
        background-color: steelblue;
      }
      p {
