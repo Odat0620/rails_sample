@@ -10,6 +10,9 @@
     <%= f.label :content, "本文" %>
     <%= f.text_area :content, placeholder: "本文を入力してください。", rows: '6', class: "form-control" %>
   </div>
+
+  <%= f.label :画像 %>
+  <%= f.file_field :image, class: "image" %>
   
   <div class="submit">
     <%= f.submit post_save, class: 'btn btn-primary btn-block' %>

@@ -2,6 +2,7 @@
   <%= form_with model: [@post, @comment], local: true do |f| %>
     <div>
       <div>
+        <h5>コメントする</h4>
         <%= f.text_area :content, placeholder: "コメントを入力", class: "p-2 mt-1 rounded" %>
       </div>
       <div>

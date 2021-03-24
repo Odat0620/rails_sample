@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def edit
   end
-  
+
   def update
     @post.update(post_params)
     if @post.save
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :image)
   end
 
   def set_post
