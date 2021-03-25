@@ -28,9 +28,9 @@
         <span class="post-time-message"><%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
 
           <% if comment.user.image? %>
-            <%= link_to image_tag(comment.user.image.thumb30.url, class:"user-icon"), user_path(comment.user) %>
+            <%= link_to image_tag(comment.user.image.thumb.url, class:"user-icon"), user_path(comment.user) %>
           <% else %>
-            <%= link_to image_tag("default30.jpg", class:"user-icon"), user_path(comment.user) %>
+            <%= link_to image_tag("default_thumb.jpg", class:"user-icon"), user_path(comment.user) %>
           <% end %>
 
         <% if comment.user == current_user %>

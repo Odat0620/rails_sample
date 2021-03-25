@@ -1,27 +1,29 @@
-<h1><%= @post.title %></h1>
-<div>
-  <% if @post.image? %>
-   <%= image_tag @post.image.url %>
-  <% end %>
+<div class="post-show-container">
+  <h1><%= @post.title %></h1>
+  <div>
+    <% if @post.image? %>
+    <%= image_tag @post.image.url, class: "post-show-image" %>
+    <% end %>
 
-  <%= @post.content %><br/>
-  <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %> | 
+    <%= @post.content %><br/>
+    <%= @post.created_at.strftime("%Y-%m-%d %H:%M:%S") %> | 
 
-  <% if @post.user_id == current_user&.id %>
-      <%= link_to "編集", edit_post_path(@post.id) %> | 
-      <%= link_to "削除", post_path(@post.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>
-  <% end %>
+    <% if @post.user_id == current_user&.id %>
+        <%= link_to "編集", edit_post_path(@post.id) %> | 
+        <%= link_to "削除", post_path(@post.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    <% end %>
 
-  <span class="like-<%= @post.id %> mr-auto">
-    <%= render 'likes/like', post: @post %>
-  </span>
-  <% if @post.user.image? %>
-    <%= link_to image_tag(@post.user.image.thumb30.url, class:"user-icon"), user_path(@post.user) %>
-  <% else %>
-    <%= link_to image_tag("default30.jpg", class:"user-icon"), user_path(@post.user) %>
-  <% end %>
+    <span class="like-<%= @post.id %> mr-auto">
+      <%= render 'likes/like', post: @post %>
+    </span>
+    <% if @post.user.image? %>
+      <%= link_to image_tag(@post.user.image.thumb.url, class:"user-icon"), user_path(@post.user) %>
+    <% else %>
+      <%= link_to image_tag("default_thumb.jpg", class:"user-icon"), user_path(@post.user) %>
+    <% end %>
 
-  <%= link_to @post.user.name, user_path(@post.user) %>
+    <%= link_to @post.user.name, user_path(@post.user) %>
+  </div>
+
+  <%= render 'posts/comment_area' %>
 </div>
-
-<%= render 'posts/comment_area' %>

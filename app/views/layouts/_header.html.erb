@@ -10,7 +10,7 @@
           <div class="dropdown">
             <button class="btn " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.image? %>
-                <%= image_tag(current_user.image.thumb30.url, class:"user-icon") %>
+                <%= image_tag(current_user.image.thumb.url, class:"user-icon") %>
               <% else %>
                 <%= image_tag("default30.jpg", class:"user-icon") %>
               <% end %>

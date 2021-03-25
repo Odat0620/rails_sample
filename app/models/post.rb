@@ -7,5 +7,5 @@ class Post < ApplicationRecord
   #バリデーション
   validates :title, presence: true, length: { maximum: 20 }
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, PostImageUploader
 end

@@ -2,7 +2,7 @@
 
 
 <% if @user.image? %>
-  <%= image_tag @user.image.thumb.url %>
+  <%= image_tag @user.image.url %>
 <% else %>
   <%= image_tag "default.jpg", :size =>'100x100' %>
 <% end %>

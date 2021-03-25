@@ -1,7 +1,5 @@
-class ImageUploader < CarrierWave::Uploader::Base
-  # Include RMagick or MiniMagick support:
+class PostImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -10,20 +8,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   #保存形式をJPGにする
   process convert: 'jpg'
 
-  #画像サイズの上限を400x400にする
-  process :resize_to_limit => [400, 400]
+  #画像サイズの上限を5000x5000にする
+  process :resize_to_limit => [5000, 5000]
 
-  #サムネイル画像を50x50で生成する
-  version :thumb do 
-    process :create_square => [50]
-  end
-
-  #画像を正方形でくり抜くメソッド
-  def create_square(size)
-    manipulate! do |img|
-      narrow = img.columns > img.rows ? img.rows : img.columns
-      img.crop(Magick::CenterGravity, narrow, narrow).resize(size, size)
-    end
+  # サムネイル画像を250x250で生成する
+  version :thumb do
+    process :resize_to_limit => [250, 250]
   end
 
   def auto

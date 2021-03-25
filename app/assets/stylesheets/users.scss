@@ -1,7 +1,6 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
 .user-icon {
-  border-radius: 100px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  object-fit: cover;
 }

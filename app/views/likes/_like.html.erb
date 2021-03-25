@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <% if current_user.already_liked?(post) %>
     <%= link_to post_like_path(post.id, current_user.id), method: :delete, remote: true, class: "like" do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+      <i class="fa fa-heart" aria-hidden="true" style="color: rgb(255, 70, 100);"></i>
     <% end %>
   <% else %>
     <%= link_to post_likes_path(post.id), method: :post, remote: true, class: "like" do %>
